@@ -42,18 +42,22 @@ const mouse = ref({
 
 const grid = ref<cell[][]>([])
 
+
+
+
+
 // 初始化 grid
-onMounted(() => {
-    for (let i = 0; i < _row; i++) {
-        grid.value[i] = []
-        for (let j = 0; j < _col; j++) {
-            grid.value[i][j] = {
-                position: { x: i, y: j },
-                state: cell_state.UNKNOWN
-            }
+
+for (let i = 0; i < _row; i++) {
+    grid.value[i] = []
+    for (let j = 0; j < _col; j++) {
+        grid.value[i][j] = {
+            position: { x: i, y: j },
+            state: cell_state.UNKNOWN
         }
     }
-})
+}
+
 
 
 // console.log(grid.value)
@@ -135,15 +139,13 @@ document.addEventListener('contextmenu', function (event) {
                     <div class="grid-item" 
                         :key="`${rowIndex}-${colIndex}`"
                         :class="{
+                        // 与鼠标交互
                         'is-hovered':  mouse.position_on_cell.x === rowIndex && mouse.position_on_cell.y === colIndex,
                         'is-down': mouse.pressing === mouse_pressing.DOWN && mouse.position_on_cell.x === rowIndex && mouse.position_on_cell.y === colIndex,
                         'is-up': mouse.pressing === mouse_pressing.UP && mouse.position_on_cell.x === rowIndex && mouse.position_on_cell.y === colIndex,
-                        'is-left-up': grid[rowIndex][colIndex].state ===  cell_state.FLAG,
-                        'is-right-up':grid[rowIndex][colIndex].state === cell_state.BOOM
-                        
-                        
-                        // 'is-left-up': grid[rowIndex][colIndex] === cell_state.LEFT_UP,
-                        // 'is-right-up': grid[rowIndex][colIndex] === cell_state.RIGHT_UP,
+                        // 格子状态
+                        'is-flag': grid[rowIndex][colIndex].state ===  cell_state.FLAG,
+                        'is-boom':grid[rowIndex][colIndex].state === cell_state.BOOM
                         }"
                         @mouseenter.stop="handleMouseEnter(rowIndex, colIndex, $event)"
                         @mousedown.stop="handleMouseDown(rowIndex, colIndex, $event)"
@@ -213,10 +215,10 @@ document.addEventListener('contextmenu', function (event) {
 .grid-item.is-down {
     background-color: rgb(163, 235, 193);
 }
-.grid-item.is-left-up {
+.grid-item.is-flag {
     background-color: rgb(0, 255, 157);
 }
-.grid-item.is-right-up {
+.grid-item.is-boom {
     background-color: rgb(255, 196, 0);
 }
 .cell-enter-active {
