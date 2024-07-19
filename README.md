@@ -1,29 +1,14 @@
-# first-vue-projecet
+# 扫雷游戏 
+- 这是一个基于 Vue3 + TypeScript + Vite 的扫雷游戏。
+- 自己练习的小项目
+# 亮点
+- 游戏运行逻辑和前段页面分离，src/composables/game.ts 封装了游戏运行逻辑 
 
-This template should help get you started developing with Vue 3 in Vite.
+# 项目的运行环境：
+- node: 16.13.0
+- pnpm: 6.24.2
 
-## Recommended IDE Setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
 pnpm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
 pnpm dev
-```
-
-### Compile and Minify for Production
-
-```sh
 pnpm build
-```
