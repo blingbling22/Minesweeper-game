@@ -8,6 +8,7 @@
 - node: 16.13.0
 - pnpm: 6.24.2
 
+![demo](https://github.com/user-attachments/assets/d3afa407-d1f3-492f-9837-3495491a138e)
 
 pnpm install
 pnpm dev
