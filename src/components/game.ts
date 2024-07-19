@@ -58,9 +58,21 @@ export default class Game {
         }
 
     }
+
+    // 获取游戏数据
     public getData() {
         return this.data;
     }
+    public getGameState() {
+        return this.game_state;
+    }
+    public setGameState(state: game_state) {
+        this.game_state = state;
+    }
+    public getVisibleState(row: number, col: number) {
+        return this.data[row][col].visible_state;
+    }
+    // 打开格子
     public open(row: number, col: number,mouseright:boolean) {
         if ( this.game_state !== game_state.ready && this.game_state !== game_state.playing) {
             console.log("游戏已结束");
@@ -153,12 +165,7 @@ export default class Game {
             return false;
         }
     }
-    public getGameState() {
-        return this.game_state;
-    }
-    public setGameState(state: game_state) {
-        this.game_state = state;
-    }
+
 
 
 

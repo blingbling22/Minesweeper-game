@@ -1,7 +1,8 @@
 <script setup lang="ts">
 
 import { ref, onMounted } from 'vue'
-const hoveredItem = ref(null)
+
+
 
 const info = ref('hello')
 
@@ -41,9 +42,6 @@ const mouse = ref({
 })
 
 const grid = ref<cell[][]>([])
-
-
-
 
 
 // 初始化 grid
@@ -104,7 +102,6 @@ const handleMouseUp = (row: number, col: number, e:MouseEvent) => {
     info.value = `抬起 ${row}-${col} ${ mouse.value.pressing}  e: ${e.buttons}`
 }
 const handleMouseEnter = (row: number, col: number, e:MouseEvent) => {
-    hoveredItem.value = `${row}-${col}`
     mouse.value.position_on_cell = { x: row, y: col }
     mouse.value.pressing = mouse_pressing.ENTER_CELL
 
